@@ -1,0 +1,41 @@
+<div>
+    <a href="#!/">Logout</a>
+    <h2>Welcome, {{user.name}}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Topic</th>
+                <th>User Name</th>
+                <th>Posts</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="topic in topics">
+                <td>{{topic.category}}</td>
+                <td><a href="#!/topic/{{topic._id}}">{{topic.title}}</a></td>
+                <td><a href="#!/user/{{topic.user}}">{{topic.user}}</a></td>
+                <td>{{topic.posts.length}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <h3>Add a new Topic</h3>
+        <form ng-submit="addTopic()">
+            <p> Topic: <input type="text" ng-model="newTopic.title"></p>
+            <p>Description: <textarea ng-model="newTopic.text" rows="8" cols="80"></textarea></p>
+            <p>Category: <select ng-model="newTopic.category">
+                <option value="Ruby on Rails">Ruby on Rails</option>
+                <option value="MySQL">MySQL</option>
+                <option value="HTML">HTML</option>
+                <option value="UX">UX</option>
+                <option value="Javascript">Javascript</option>
+                <option value="Python">Python</option>
+                <option value="iOS">iOS</option>
+            </select></p>
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
+
+</div>

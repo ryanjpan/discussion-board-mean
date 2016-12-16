@@ -1,0 +1,22 @@
+<div>
+    <p><a href="#!/dashboard">Dashboard</a> | <a href="#!/">Logout</a></p>
+    <a href="#!/user/{{topic.user}}">{{topic.user}}</a> posted a topic:
+    <p class="topictitle">{{topic.title}}</p>
+    <p>Description: {{topic.text}}</p>
+
+    <p>Post your answer here...</p>
+    <form ng-submit="addPost()">
+        <textarea ng-model="newPost.text" rows="8" cols="80"></textarea>
+        <input type="submit" value="Post">
+    </form>
+    <hr>
+    <div class="posts" ng-repeat="post in topic.posts track by $index">
+        <p><a href="#!/user/{{post.user}}">{{post.user}}</a>: {{post.text}} {{post.upvotes}}<button type="button" ng-click="upvote($index)">^</button>{{post.downvotes}}<button type="button" ng-click="downvote($index)">v</button> </p>
+        <p class="comments" ng-repeat="comment in post.comments"><a href="#!/user/{{comment.user}}">{{comment.user}}</a>: {{comment.text}}</p>
+        <form ng-submit="addComment($index, newComment)">
+            <textarea class="comments" ng-model="newComment" rows="8" cols="80"></textarea>
+            <input type="submit" value="Comment">
+        </form>
+        <hr>
+    </div>
+</div>
