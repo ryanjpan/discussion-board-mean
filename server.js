@@ -1,9 +1,9 @@
-var express  = require( 'express' ),
-    path     = require( 'path' ),
-    bp       = require('body-parser'),
-    root     = __dirname,
-    port     = process.env.PORT || 8000,
-    app      = express();
+var express  = require( 'express' );
+var path     = require( 'path' );
+var bp       = require('body-parser');
+var root     = __dirname;
+var port     = 8000;
+var app      = express();
 
 
 app.use( express.static( path.join( root, 'client' )));
